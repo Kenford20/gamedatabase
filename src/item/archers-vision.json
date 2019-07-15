@@ -5,6 +5,8 @@
     "description": "A book said to contain the secret behind becoming an ace marksman.",
     "apShops": [
         {
+            "map": "Ritania",
+            "difficulty": "World (Unrecorded History)",
             "chapter": "Chapter 4-2",
             "quantity": 5,
             "cost": 120

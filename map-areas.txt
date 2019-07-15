@@ -1,0 +1,63 @@
+
+Adventure
+World (Unrecorded History)
+A Crack in the World
+
+Ritania
+----------
+1 Ezera
+2 Reingar
+2S Levulin
+3 Savara
+3S Farche Frontier
+4-1 Solayu Swamp
+4-2 Solayu Forest
+5 Dun Blyraia
+5S Sun Desert
+6 South Wetheric Moor
+7 North Wetheric Moor
+    4 Dead Hill
+    S6 Seven Flags Fortress
+8 Duselnorc
+8S Breezy Plain
+9-1 West Taranor
+9-2 Central Taranor
+10 East Taranor
+
+
+Cidonia
+----------
+1 Jerdun Borderlands
+1S Pupuran Ruins
+2 Crimson City Meldrec
+2S Scorned Lands
+3 Mining City Aakhen
+4 City of Sorcerers Witchaven
+5-1 North Forest City Perland
+5-2 South Forest City Perland
+6 Aakhen Exile Colony
+6S Dark Iron Range
+7 City of Starlight Constella
+7 Star Chaser Heights
+8 Shandra Ruins
+9 Comet Temple
+10 Distorted Dimension
+
+    "apShops": [
+        {
+            "map": "Ritania",
+            "difficulty": "World (Unrecorded History)",
+            "chapter": "7 North Wetheric Moor",
+            "quantity": 2,
+            "cost": 400
+        }
+    ],
+    "locations": [
+        {
+            "map": "Ritania",
+            "difficulty": "World (Unrecorded History)",
+            "name": "Seven Flags Fortress",
+            "node": "7-S6",
+            "mobcount": "?"
+        }
+    ]

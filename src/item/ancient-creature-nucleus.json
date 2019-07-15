@@ -5,15 +5,40 @@
     "description": "A nucleus with an unknown source of power, some say it can be used to move anything in the world.",
     "apShops": [
         {
-            "chapter": "Chapter 7",
+            "map": "Ritania",
+            "difficulty": "World (Unrecorded History)",
+            "chapter": "7 North Wetheric Moor",
             "quantity": 2,
             "cost": 400
         }
     ],
     "locations": [
         {
-            "node": "World 7-S6",
+            "map": "Ritania",
+            "difficulty": "World (Unrecorded History)",
+            "name": "A Crack in the World",
+            "node": "3S-Crack",
+            "mobcount": "?"
+        },
+        {
+            "map": "Ritania",
+            "difficulty": "World (Unrecorded History)",
+            "name": "A Crack in the World",
+            "node": "5S-Crack",
+            "mobcount": "?"
+        },
+        {
+            "map": "Ritania",
+            "difficulty": "World (Unrecorded History)",
+            "name": "?",
+            "node": "7-4",
+            "mobcount": "?"
+        },
+        {
+            "map": "Ritania",
+            "difficulty": "World (Unrecorded History)",
             "name": "Seven Flags Fortress",
+            "node": "7-S6",
             "mobcount": "?"
         }
     ]
