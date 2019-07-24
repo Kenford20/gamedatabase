@@ -20,7 +20,7 @@ module.exports = {
 		'memoryImprint',
 		'awakening',
 	],
-	item: ['name', 'locations', 'description', 'type', 'rarity'],
+	item: ['name', 'locations', 'description', 'type', 'rarity', 'apShops','locations'],
 	latest: ['hero', 'artifact'],
 	voice: ['_id', 'voice'],
 };

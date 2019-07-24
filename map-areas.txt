@@ -43,6 +43,11 @@ Cidonia
 9 Comet Temple
 10 Distorted Dimension
 
+
+
+    "apShops": [],
+    "locations": []
+
     "apShops": [
         {
             "map": "Ritania",
