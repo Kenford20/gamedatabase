@@ -11,15 +11,15 @@
     "relations": [
         {
             "hero": "coli",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "gunther",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "sven",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "helga",
@@ -35,8 +35,8 @@
             "def": 55,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -47,8 +47,8 @@
             "def": 404,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -60,7 +60,7 @@
             "chc": 0.19,
             "chd": 1.5,
             "eff": 0.18,
-            "efr": 0.0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -71,8 +71,8 @@
             "def": 501,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -84,7 +84,7 @@
             "chc": 0.27,
             "chd": 1.5,
             "eff": 0.18,
-            "efr": 0.0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -202,31 +202,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.9,
                     "soulburn": 0.9
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "multiplicative",
-                    "stat": "spd",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "spd_rate",
                     "value": 0.00075,
                     "soulburn": 0.00075
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((spd_rate * hero_spd))) * pow! * constant",
+                "value": "((0.9 * hero_atk)) * (1 + ((0.00075 * hero_spd))) * 1.0 * 1.871",
+                "simplified": "((1.6839 * hero_atk)) * (1 + ((0.00075 * hero_spd)))",
+                "soulburn": "((0.9 * hero_atk)) * (1 + ((0.00075 * hero_spd))) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.6839 * hero_atk)) * (1 + ((0.00075 * hero_spd)))"
+            }
         },
         {
             "isPassive": true,
@@ -298,21 +294,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -427,31 +424,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.85,
                     "soulburn": 0.85
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 1.8,
                     "soulburn": 2.5
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "multiplicative",
-                    "stat": "spd",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "spd_rate",
                     "value": 0.0015,
                     "soulburn": 0.0015
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((spd_rate * hero_spd))) * pow! * constant",
+                "value": "((1.8 * hero_atk)) * (1 + ((0.0015 * hero_spd))) * 0.85 * 1.871",
+                "simplified": "((2.8626 * hero_atk)) * (1 + ((0.0015 * hero_spd)))",
+                "soulburn": "((2.5 * hero_atk)) * (1 + ((0.0015 * hero_spd))) * 0.85 * 1.871",
+                "simplifiedSoulburn": "((3.9759 * hero_atk)) * (1 + ((0.0015 * hero_spd)))"
+            }
         }
     ],
     "specialtySkill": {
@@ -689,5 +682,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "The desert taught me that nothing is forever and nothing truly disappears.",
+    "description": "A cool treasure hunter shining within a sandstorm"
 }

@@ -19,8 +19,11 @@ module.exports = {
 		'camping',
 		'memoryImprint',
 		'awakening',
+		'summonQuote',
+		'description',
 	],
 	item: ['name', 'locations', 'description', 'type', 'rarity', 'apShops','locations'],
 	latest: ['hero', 'artifact'],
 	voice: ['_id', 'voice'],
+	creator: ['title', 'description', 'img', 'social'],
 };

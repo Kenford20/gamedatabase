@@ -7,19 +7,19 @@
     "zodiac": "gemini",
     "specialtyChangeName": "",
     "selfSkillBarName": "",
-    "background": "A commander of Savara's legendary Silver Blade Company. At first it started off as a small group of people who had nowhere to return to, then it became bigger and bigger in size due to Aramintha's great leadership.",
+    "background": "Commander of Savara's legendary Silver Blade Company. What began as a small group of people who had nowhere else to go gradually became greater in size thanks to Aramintha's charismatic leadership.",
     "relations": [
         {
             "hero": "mirsa",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "basar",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "celeste",
-            "relationType": "trust"
+            "relationType": "friendly"
         }
     ],
     "stats": {
@@ -31,8 +31,8 @@
             "def": 85,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -43,8 +43,8 @@
             "def": 551,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -56,7 +56,7 @@
             "chc": 0.15,
             "chd": 1.5,
             "eff": 0.18,
-            "efr": 0.0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -67,8 +67,8 @@
             "def": 683,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -80,7 +80,7 @@
             "chc": 0.15,
             "chd": 1.5,
             "eff": 0.3,
-            "efr": 0.0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -181,21 +181,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((1.871 * hero_atk))",
+                "soulburn": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.871 * hero_atk))"
+            }
         },
         {
             "isPassive": true,
@@ -291,21 +292,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.5,
                     "soulburn": 0.5
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((0.5 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((0.9355 * hero_atk))",
+                "soulburn": "((0.5 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((0.9355 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
@@ -404,21 +406,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.9,
                     "soulburn": 0.9
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((0.9 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((1.6839 * hero_atk))",
+                "soulburn": "((0.9 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.6839 * hero_atk))"
+            }
         }
     ],
     "specialtySkill": {
@@ -664,5 +667,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "I'm Aramintha, commander of the Silver Blade Company.",
+    "description": "Red scorpion of Savara who cuts through the sandstorms."
 }

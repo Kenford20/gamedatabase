@@ -15,23 +15,23 @@
         },
         {
             "hero": "hazel",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "schuri",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "wanda",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "cermia",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "tamarinne",
-            "relationType": "trust"
+            "relationType": "friendly"
         }
     ],
     "stats": {
@@ -43,8 +43,8 @@
             "def": 67,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -55,8 +55,8 @@
             "def": 489,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -67,8 +67,8 @@
             "def": 489,
             "chc": 0.19,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -79,8 +79,8 @@
             "def": 606,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -91,8 +91,8 @@
             "def": 606,
             "chc": 0.27,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -210,21 +210,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.95,
                     "soulburn": 0.95
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * 0.95 * 1.871",
+                "simplified": "((1.7774 * hero_atk))",
+                "soulburn": "((1.0 * hero_atk)) * 0.95 * 1.871",
+                "simplifiedSoulburn": "((1.7774 * hero_atk))"
+            }
         },
         {
             "isPassive": true,
@@ -281,21 +282,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -423,21 +425,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((1.871 * hero_atk))",
+                "soulburn": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.871 * hero_atk))"
+            }
         }
     ],
     "specialtySkill": {
@@ -675,5 +678,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "Efficiency in everything I do! Especially magic and math.",
+    "description": "A sassy magic researcher who sees all magic as math"
 }

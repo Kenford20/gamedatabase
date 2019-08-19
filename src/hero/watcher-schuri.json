@@ -7,15 +7,15 @@
     "zodiac": "scorpio",
     "specialtyChangeName": "",
     "selfSkillBarName": "",
-    "background": "A member of the Sicar assasin organization. Watcher Schuri is an oustanding fighter, but ignorant of the ways of the world. Though his rigid way of speaking gives of an air of unapproachability, he is surprisingly straightforward and open to granting people's requests. However, he hides a secret he cannot share with others.",
+    "background": "A member of the Sicar assassin organization, Watcher Schuri is an outstanding fighter, but ignorant of the ways of the world. Though his rigid way of speaking gives off an air of unapproachability, he is surprisingly straightforward and open to granting people's requests. However, he hides a secret he cannot share with others.",
     "relations": [
         {
             "hero": "assassin-cidd",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "assassin-cartuja",
-            "relationType": "trust"
+            "relationType": "friendly"
         }
     ],
     "stats": {
@@ -27,8 +27,8 @@
             "def": 65,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -39,8 +39,8 @@
             "def": 449,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -51,8 +51,8 @@
             "def": 449,
             "chc": 0.19,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -63,8 +63,8 @@
             "def": 557,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -75,8 +75,8 @@
             "def": 557,
             "chc": 0.27,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -177,21 +177,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((1.871 * hero_atk))",
+                "soulburn": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.871 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
@@ -288,21 +289,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 1.05,
                     "soulburn": 1.05
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.7,
                     "soulburn": 0.7
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((0.7 * hero_atk)) * 1.05 * 1.871",
+                "simplified": "((1.3752 * hero_atk))",
+                "soulburn": "((0.7 * hero_atk)) * 1.05 * 1.871",
+                "simplifiedSoulburn": "((1.3752 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
@@ -397,21 +399,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.95,
                     "soulburn": 0.95
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.8,
                     "soulburn": 0.8
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((0.8 * hero_atk)) * 0.95 * 1.871",
+                "simplified": "((1.422 * hero_atk))",
+                "soulburn": "((0.8 * hero_atk)) * 0.95 * 1.871",
+                "simplifiedSoulburn": "((1.422 * hero_atk))"
+            }
         }
     ],
     "specialtySkill": {
@@ -657,5 +660,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "Let's do our best together.",
+    "description": "A secretive Sicar assassin"
 }

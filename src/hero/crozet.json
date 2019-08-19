@@ -15,15 +15,15 @@
         },
         {
             "hero": "lorina",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "hazel",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "tenebria",
-            "relationType": "grudge"
+            "relationType": "hostile"
         },
         {
             "hero": "ras",
@@ -31,7 +31,7 @@
         },
         {
             "hero": "maya",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "angelica",
@@ -47,8 +47,8 @@
             "def": 79,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -59,8 +59,8 @@
             "def": 542,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -71,8 +71,8 @@
             "def": 558,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -83,8 +83,8 @@
             "def": 673,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -95,8 +95,8 @@
             "def": 733,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -184,31 +184,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 1.05,
                     "soulburn": 1.05
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.6,
                     "soulburn": 0.6
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "def",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "def_rate",
                     "value": 0.7,
                     "soulburn": 0.7
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (def_rate * hero_def)) * pow! * constant",
+                "value": "((0.6 * hero_atk) + (0.7 * hero_def)) * 1.05 * 1.871",
+                "simplified": "((1.1787 * hero_atk) + (1.3752 * hero_def))",
+                "soulburn": "((0.6 * hero_atk) + (0.7 * hero_def)) * 1.05 * 1.871",
+                "simplifiedSoulburn": "((1.1787 * hero_atk) + (1.3752 * hero_def))"
+            }
         },
         {
             "isPassive": true,
@@ -294,21 +290,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -434,31 +431,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.95,
                     "soulburn": 0.95
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.5,
                     "soulburn": 0.75
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "def",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "def_rate",
                     "value": 0.6,
                     "soulburn": 0.6
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (def_rate * hero_def)) * pow! * constant",
+                "value": "((0.5 * hero_atk) + (0.6 * hero_def)) * 0.95 * 1.871",
+                "simplified": "((0.8887 * hero_atk) + (1.0665 * hero_def))",
+                "soulburn": "((0.75 * hero_atk) + (0.6 * hero_def)) * 0.95 * 1.871",
+                "simplifiedSoulburn": "((1.3331 * hero_atk) + (1.0665 * hero_def))"
+            }
         }
     ],
     "specialtySkill": {
@@ -704,5 +697,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "I will do my best.",
+    "description": "Honest and incorruptible, the Knight Commander of the Order of the Shield"
 }

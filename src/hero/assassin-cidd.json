@@ -15,15 +15,15 @@
         },
         {
             "hero": "haste",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "watcher-schuri",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "kiris",
-            "relationType": "trust"
+            "relationType": "friendly"
         }
     ],
     "stats": {
@@ -35,8 +35,8 @@
             "def": 58,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -47,8 +47,8 @@
             "def": 401,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -59,8 +59,8 @@
             "def": 401,
             "chc": 0.27,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -71,8 +71,8 @@
             "def": 497,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -83,8 +83,8 @@
             "def": 497,
             "chc": 0.35,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -202,31 +202,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.9,
                     "soulburn": 0.9
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "multiplicative",
-                    "stat": "spd",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "spd_rate",
                     "value": 0.00075,
                     "soulburn": 0.00075
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((spd_rate * hero_spd))) * pow! * constant",
+                "value": "((0.9 * hero_atk)) * (1 + ((0.00075 * hero_spd))) * 1.0 * 1.871",
+                "simplified": "((1.6839 * hero_atk)) * (1 + ((0.00075 * hero_spd)))",
+                "soulburn": "((0.9 * hero_atk)) * (1 + ((0.00075 * hero_spd))) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.6839 * hero_atk)) * (1 + ((0.00075 * hero_spd)))"
+            }
         },
         {
             "isPassive": true,
@@ -298,21 +294,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -427,41 +424,32 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.95,
                     "soulburn": 0.95
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 1.5,
-                    "soulburn": 2.0
+                    "soulburn": 2
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "multiplicative",
-                    "stat": "spd",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "spd_rate",
                     "value": 0.001,
                     "soulburn": 0.001
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "multiplicative",
-                    "stat": "spd",
-                    "type": "multiplier",
-                    "target": "target",
+                    "name": "target_spd_rate",
                     "value": 0.003,
                     "soulburn": 0.003
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((spd_rate * hero_spd) * (target_spd_rate * target_spd))) * pow! * constant",
+                "value": "((1.5 * hero_atk)) * (1 + ((0.001 * hero_spd) * (0.003 * target_spd))) * 0.95 * 1.871",
+                "simplified": "((2.6662 * hero_atk)) * (1 + ((0.001 * hero_spd) * (0.003 * target_spd)))",
+                "soulburn": "((2.0 * hero_atk)) * (1 + ((0.001 * hero_spd) * (0.003 * target_spd))) * 0.95 * 1.871",
+                "simplifiedSoulburn": "((3.5549 * hero_atk)) * (1 + ((0.001 * hero_spd) * (0.003 * target_spd)))"
+            }
         }
     ],
     "specialtySkill": {
@@ -707,5 +695,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "Are we assassinating someone today too? Who's our target?",
+    "description": "Eligos's faithful dog with a sad past"
 }

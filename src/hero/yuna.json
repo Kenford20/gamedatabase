@@ -15,27 +15,27 @@
         },
         {
             "hero": "tenebria",
-            "relationType": "grudge"
+            "relationType": "hostile"
         },
         {
             "hero": "judith",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "hazel",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "karin",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "rikoris",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "tamarinne",
-            "relationType": "trust"
+            "relationType": "friendly"
         }
     ],
     "stats": {
@@ -47,8 +47,8 @@
             "def": 69,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -59,8 +59,8 @@
             "def": 446,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -71,8 +71,8 @@
             "def": 446,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -83,8 +83,8 @@
             "def": 553,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -95,8 +95,8 @@
             "def": 553,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -212,21 +212,36 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.8,
                     "soulburn": 0.8
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.6,
                     "soulburn": 0.85
+                },
+                {
+                    "name": "skill_dmg_rate",
+                    "description": "Increased damage based number of targets.",
+                    "value": [
+                        1.6,
+                        1.4,
+                        0
+                    ],
+                    "soulburn": [
+                        1.6,
+                        1.4,
+                        0
+                    ]
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((skill_dmg_rate * hero_special_count))) * pow! * constant",
+                "value": "((0.6 * hero_atk)) * (1 + (([1.6, 1.4, 0.0] * hero_special_count))) * 0.8 * 1.871",
+                "simplified": "((0.8981 * hero_atk)) * (1 + (([1.6, 1.4, 0.0] * hero_special_count)))",
+                "soulburn": "((0.85 * hero_atk)) * (1 + (([1.6, 1.4, 0.0] * hero_special_count))) * 0.8 * 1.871",
+                "simplifiedSoulburn": "((1.2723 * hero_atk)) * (1 + (([1.6, 1.4, 0.0] * hero_special_count)))"
+            }
         },
         {
             "isPassive": false,
@@ -282,21 +297,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -422,21 +438,36 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.8,
                     "soulburn": 0.8
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 1.5,
                     "soulburn": 1.5
+                },
+                {
+                    "name": "skill_dmg_rate",
+                    "description": "Increased damage based number of targets.",
+                    "value": [
+                        1.6,
+                        1.4,
+                        0
+                    ],
+                    "soulburn": [
+                        1.6,
+                        1.4,
+                        0
+                    ]
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((skill_dmg_rate * hero_special_count))) * pow! * constant",
+                "value": "((1.5 * hero_atk)) * (1 + (([1.6, 1.4, 0.0] * hero_special_count))) * 0.8 * 1.871",
+                "simplified": "((2.2452 * hero_atk)) * (1 + (([1.6, 1.4, 0.0] * hero_special_count)))",
+                "soulburn": "((1.5 * hero_atk)) * (1 + (([1.6, 1.4, 0.0] * hero_special_count))) * 0.8 * 1.871",
+                "simplifiedSoulburn": "((2.2452 * hero_atk)) * (1 + (([1.6, 1.4, 0.0] * hero_special_count)))"
+            }
         }
     ],
     "specialtySkill": {
@@ -682,5 +713,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "Hooray! Yuna is coming!",
+    "description": "President of the Reingar Student Council, the school girl from another world"
 }

@@ -7,11 +7,11 @@
     "zodiac": "taurus",
     "specialtyChangeName": "",
     "selfSkillBarName": "",
-    "background": "Originally a Dragon of Wintenberg, through certain events Yufine eventually found her way to Ritania. Cheerful and curious, her excessive curiosity often leads to accidents. She loves shiny things so much that she tends to zone out while staring at them.",
+    "background": "Originally a Dragon of Wintenberg, through certain events Yufine eventually found her way to Ritania. Cheerful and curious, her excessive curiosity often leads to accidents. She loves shiny things so much that she tends zone out while staring at them.",
     "relations": [
         {
             "hero": "silk",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "rin",
@@ -19,7 +19,7 @@
         },
         {
             "hero": "cecilia",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "luna",
@@ -35,8 +35,8 @@
             "def": 69,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -47,8 +47,8 @@
             "def": 446,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -59,8 +59,8 @@
             "def": 446,
             "chc": 0.23,
             "chd": 1.55,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -71,8 +71,8 @@
             "def": 553,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -83,8 +83,8 @@
             "def": 553,
             "chc": 0.23,
             "chd": 1.65,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -202,21 +202,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((1.871 * hero_atk))",
+                "soulburn": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.871 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
@@ -291,21 +292,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.6,
                     "soulburn": 0.6
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((0.6 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((1.1226 * hero_atk))",
+                "soulburn": "((0.6 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.1226 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
@@ -420,21 +422,28 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.95,
                     "soulburn": 0.95
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 2.0,
-                    "soulburn": 2.0
+                    "name": "atk_rate",
+                    "value": 2,
+                    "soulburn": 2
+                },
+                {
+                    "name": "skill_dmg_rate",
+                    "description": "If target is buffed, increases damage.",
+                    "value": 0.5,
+                    "soulburn": 0.5
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((skill_dmg_rate * hero_special_count))) * pow! * constant",
+                "value": "((2.0 * hero_atk)) * (1 + ((0.5 * hero_special_count))) * 0.95 * 1.871",
+                "simplified": "((3.5549 * hero_atk)) * (1 + ((0.5 * hero_special_count)))",
+                "soulburn": "((2.0 * hero_atk)) * (1 + ((0.5 * hero_special_count))) * 0.95 * 1.871",
+                "simplifiedSoulburn": "((3.5549 * hero_atk)) * (1 + ((0.5 * hero_special_count)))"
+            }
         }
     ],
     "specialtySkill": {
@@ -680,5 +689,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "Oh, you need my help? Cool, let's go!",
+    "description": "A lively Dragon girl, who loves shiny things"
 }

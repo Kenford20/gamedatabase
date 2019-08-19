@@ -11,7 +11,7 @@
     "relations": [
         {
             "hero": "straze",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "kawerik",
@@ -19,7 +19,7 @@
         },
         {
             "hero": "ras",
-            "relationType": "grudge"
+            "relationType": "hostile"
         }
     ],
     "stats": {
@@ -181,21 +181,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((1.871 * hero_atk))",
+                "soulburn": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.871 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
@@ -293,21 +294,28 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
+                },
+                {
+                    "name": "skill_dmg_rate",
+                    "description": "If target has no buffs",
+                    "value": 0.2,
+                    "soulburn": 0.2
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((skill_dmg_rate * hero_special_count))) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * (1 + ((0.2 * hero_special_count))) * 1.0 * 1.871",
+                "simplified": "((1.871 * hero_atk)) * (1 + ((0.2 * hero_special_count)))",
+                "soulburn": "((1.0 * hero_atk)) * (1 + ((0.2 * hero_special_count))) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.871 * hero_atk)) * (1 + ((0.2 * hero_special_count)))"
+            }
         },
         {
             "isPassive": false,
@@ -403,21 +411,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.95,
                     "soulburn": 0.95
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 1.8,
                     "soulburn": 2.4
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.8 * hero_atk)) * 0.95 * 1.871",
+                "simplified": "((3.1994 * hero_atk))",
+                "soulburn": "((2.4 * hero_atk)) * 0.95 * 1.871",
+                "simplifiedSoulburn": "((4.2659 * hero_atk))"
+            }
         }
     ],
     "specialtySkill": {
@@ -663,5 +672,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "You've been looking for me? Who do you want me to cut?",
+    "description": "Mercenary of Rekos who wanted to be a tailor"
 }

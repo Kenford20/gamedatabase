@@ -11,31 +11,31 @@
     "relations": [
         {
             "hero": "ras",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "cermia",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "nilgal",
-            "relationType": "grudge"
+            "relationType": "hostile"
         },
         {
             "hero": "arbiter-vildred",
-            "relationType": "grudge"
+            "relationType": "hostile"
         },
         {
             "hero": "silk",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "alexa",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "elson",
-            "relationType": "trust"
+            "relationType": "friendly"
         }
     ],
     "stats": {
@@ -47,8 +47,8 @@
             "def": 69,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -59,8 +59,8 @@
             "def": 446,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -71,8 +71,8 @@
             "def": 446,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -83,8 +83,8 @@
             "def": 553,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -95,8 +95,8 @@
             "def": 553,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -227,21 +227,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.95,
                     "soulburn": 0.95
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 2.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 2
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * 0.95 * 1.871",
+                "simplified": "((1.7774 * hero_atk))",
+                "soulburn": "((2.0 * hero_atk)) * 0.95 * 1.871",
+                "simplifiedSoulburn": "((3.5549 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
@@ -294,21 +295,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -424,21 +426,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.9,
                     "soulburn": 0.9
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 2.0,
-                    "soulburn": 2.0
+                    "name": "atk_rate",
+                    "value": 2,
+                    "soulburn": 2
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((2.0 * hero_atk)) * 0.9 * 1.871",
+                "simplified": "((3.3678 * hero_atk))",
+                "soulburn": "((2.0 * hero_atk)) * 0.9 * 1.871",
+                "simplifiedSoulburn": "((3.3678 * hero_atk))"
+            }
         }
     ],
     "specialtySkill": {
@@ -684,5 +687,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "My name is Iseria, the Knight of White Flowers, and the keeper of the oath.",
+    "description": "The Knight of White Flowers, protector of a solemn oath"
 }

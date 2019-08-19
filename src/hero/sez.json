@@ -7,27 +7,27 @@
     "zodiac": "scorpio",
     "specialtyChangeName": "",
     "selfSkillBarName": "",
-    "background": "A cynical and quiet man, Sez Gaien is a living weapon known to many as \"the Berseker\". After gaining power from an Acolyte to escape the homunculus experiments, he was branded a mass murderer and has been running ever since.",
+    "background": "A cynical and quiet man, Sez Gaien is a living weapon known to many as \"the Berserker.\" After gaining power from an Acolyte to escape the Homunculus experiments, he was branded a mass murderer and has been running ever since.",
     "relations": [
         {
             "hero": "aramintha",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "ras",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "kiris",
-            "relationType": "grudge"
+            "relationType": "hostile"
         },
         {
             "hero": "violet",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "bellona",
-            "relationType": "trust"
+            "relationType": "friendly"
         }
     ],
     "stats": {
@@ -39,8 +39,8 @@
             "def": 59,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -51,8 +51,8 @@
             "def": 381,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -63,8 +63,8 @@
             "def": 381,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -75,8 +75,8 @@
             "def": 473,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -87,8 +87,8 @@
             "def": 473,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -189,21 +189,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.95,
                     "soulburn": 0.95
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
+                },
+                {
+                    "name": "target_hp_missing_rate",
+                    "value": 0.002,
+                    "soulburn": 0.002
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((target_hp_missing_rate * target_hp_lost_percent))) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * (1 + ((0.002 * target_hp_lost_percent))) * 0.95 * 1.871",
+                "simplified": "((1.7774 * hero_atk)) * (1 + ((0.002 * target_hp_lost_percent)))",
+                "soulburn": "((1.0 * hero_atk)) * (1 + ((0.002 * target_hp_lost_percent))) * 0.95 * 1.871",
+                "simplifiedSoulburn": "((1.7774 * hero_atk)) * (1 + ((0.002 * target_hp_lost_percent)))"
+            }
         },
         {
             "isPassive": true,
@@ -300,21 +306,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.5,
                     "soulburn": 0.5
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((0.5 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((0.9355 * hero_atk))",
+                "soulburn": "((0.5 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((0.9355 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
@@ -409,21 +416,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.95,
                     "soulburn": 0.95
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 1.8,
                     "soulburn": 1.8
+                },
+                {
+                    "name": "target_hp_missing_rate",
+                    "value": 0.003,
+                    "soulburn": 0.007
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((target_hp_missing_rate * target_hp_lost_percent))) * pow! * constant",
+                "value": "((1.8 * hero_atk)) * (1 + ((0.003 * target_hp_lost_percent))) * 0.95 * 1.871",
+                "simplified": "((3.1994 * hero_atk)) * (1 + ((0.003 * target_hp_lost_percent)))",
+                "soulburn": "((1.8 * hero_atk)) * (1 + ((0.003 * target_hp_lost_percent))) * 0.95 * 1.871",
+                "simplifiedSoulburn": "((3.1994 * hero_atk)) * (1 + ((0.007 * target_hp_lost_percent)))"
+            }
         }
     ],
     "specialtySkill": {
@@ -669,5 +682,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "What do you want from me...?",
+    "description": "A living weapon, the cynical Berserker"
 }

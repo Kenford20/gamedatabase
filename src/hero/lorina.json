@@ -11,7 +11,7 @@
     "relations": [
         {
             "hero": "maya",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "crozet",
@@ -19,11 +19,11 @@
         },
         {
             "hero": "dingo",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "cidd",
-            "relationType": "trust"
+            "relationType": "friendly"
         }
     ],
     "stats": {
@@ -35,8 +35,8 @@
             "def": 60,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -47,8 +47,8 @@
             "def": 438,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -59,8 +59,8 @@
             "def": 438,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -71,8 +71,8 @@
             "def": 543,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -83,8 +83,8 @@
             "def": 543,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -183,21 +183,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.9,
                     "soulburn": 0.9
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * 0.9 * 1.871",
+                "simplified": "((1.6839 * hero_atk))",
+                "soulburn": "((1.0 * hero_atk)) * 0.9 * 1.871",
+                "simplifiedSoulburn": "((1.6839 * hero_atk))"
+            }
         },
         {
             "isPassive": true,
@@ -293,21 +294,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -403,21 +405,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.95,
                     "soulburn": 0.95
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 1.5,
                     "soulburn": 1.5
+                },
+                {
+                    "name": "target_hp_missing_rate",
+                    "value": 0.005,
+                    "soulburn": 0.005
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((target_hp_missing_rate * target_hp_lost_percent))) * pow! * constant",
+                "value": "((1.5 * hero_atk)) * (1 + ((0.005 * target_hp_lost_percent))) * 0.95 * 1.871",
+                "simplified": "((2.6662 * hero_atk)) * (1 + ((0.005 * target_hp_lost_percent)))",
+                "soulburn": "((1.5 * hero_atk)) * (1 + ((0.005 * target_hp_lost_percent))) * 0.95 * 1.871",
+                "simplifiedSoulburn": "((2.6662 * hero_atk)) * (1 + ((0.005 * target_hp_lost_percent)))"
+            }
         }
     ],
     "specialtySkill": {
@@ -655,5 +663,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "Please, call me Lorina.",
+    "description": "She may look skilled, but she's useless! An Order of the Shield apprentice"
 }

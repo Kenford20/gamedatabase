@@ -7,15 +7,15 @@
     "zodiac": "libra",
     "specialtyChangeName": "captain-rikoris",
     "selfSkillBarName": "",
-    "background": "A founding member of the Martial Arts Club, Rikoris got caught up with Azalea and began helping out with the Public Security Club. He often lacks common sense, and is weak to the requests of others.",
+    "background": "A founding member of the Spear Club, Rikoris got caught up with Azalea and began helping out with the Public Security Club. He often lacks common sense, and is weak to the requests of others.",
     "relations": [
         {
             "hero": "wanda",
-            "relationType": "grudge"
+            "relationType": "hostile"
         },
         {
             "hero": "azalea",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "yuna",
@@ -35,8 +35,8 @@
             "def": 60,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -47,8 +47,8 @@
             "def": 443,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -59,8 +59,8 @@
             "def": 469,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -71,8 +71,8 @@
             "def": 550,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -83,8 +83,8 @@
             "def": 583,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -98,7 +98,7 @@
             "cooldown": 0,
             "name": "Quick Pierce",
             "soulAcquire": 1,
-            "description": "Attacks with a spear, with 35% chance to decrease Defense for 2 turns.",
+            "description": "Attacks with a spear, with a 35% chance to decrease Defense for 2 turns. Effect chance increases by 25% when the caster is granted increased Speed.",
             "enhancement": [
                 {
                     "description": "+5% damage dealt",
@@ -202,21 +202,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((1.871 * hero_atk))",
+                "soulburn": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.871 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
@@ -271,21 +272,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -411,21 +413,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.6,
                     "soulburn": 0.6
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((0.6 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((1.1226 * hero_atk))",
+                "soulburn": "((0.6 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.1226 * hero_atk))"
+            }
         }
     ],
     "specialtySkill": {
@@ -663,5 +666,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "The spear is my passion, my specialty, my life. Hmm, if there's anything you need, feel free to ask haha!",
+    "description": "A kind, weak-hearted member of the Spear Club"
 }

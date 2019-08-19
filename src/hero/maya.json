@@ -15,15 +15,15 @@
         },
         {
             "hero": "lorina",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "cidd",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "sven",
-            "relationType": "trust"
+            "relationType": "friendly"
         }
     ],
     "stats": {
@@ -35,8 +35,8 @@
             "def": 76,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -47,8 +47,8 @@
             "def": 523,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -60,7 +60,7 @@
             "chc": 0.15,
             "chd": 1.5,
             "eff": 0.03,
-            "efr": 0.0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -71,8 +71,8 @@
             "def": 648,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -84,7 +84,7 @@
             "chc": 0.15,
             "chd": 1.5,
             "eff": 0.09,
-            "efr": 0.0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -202,31 +202,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.95,
                     "soulburn": 0.95
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.5,
                     "soulburn": 0.5
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "def",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "def_rate",
                     "value": 0.75,
                     "soulburn": 0.75
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (def_rate * hero_def)) * pow! * constant",
+                "value": "((0.5 * hero_atk) + (0.75 * hero_def)) * 0.95 * 1.871",
+                "simplified": "((0.8887 * hero_atk) + (1.3331 * hero_def))",
+                "soulburn": "((0.5 * hero_atk) + (0.75 * hero_def)) * 0.95 * 1.871",
+                "simplifiedSoulburn": "((0.8887 * hero_atk) + (1.3331 * hero_def))"
+            }
         },
         {
             "isPassive": false,
@@ -341,31 +337,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.8,
                     "soulburn": 0.8
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "def",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "def_rate",
                     "value": 0.8,
                     "soulburn": 0.8
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (def_rate * hero_def)) * pow! * constant",
+                "value": "((0.8 * hero_atk) + (0.8 * hero_def)) * 1.0 * 1.871",
+                "simplified": "((1.4968 * hero_atk) + (1.4968 * hero_def))",
+                "soulburn": "((0.8 * hero_atk) + (0.8 * hero_def)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.4968 * hero_atk) + (1.4968 * hero_def))"
+            }
         },
         {
             "isPassive": false,
@@ -440,21 +432,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         }
     ],
     "specialtySkill": {
@@ -700,5 +693,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "Oh, you were looking for me? Thank you!",
+    "description": "A young knight with a strong arm and shield"
 }

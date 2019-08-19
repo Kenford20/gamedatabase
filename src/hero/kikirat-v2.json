@@ -7,7 +7,7 @@
     "zodiac": "capricorn",
     "specialtyChangeName": "",
     "selfSkillBarName": "",
-    "background": "Machinery based on the Kikirat. It has cleaning functionality for comfort, but often mistakes Humans for trash.",
+    "background": "Machinery based on the Kikirat. It has cleaning functionality for comfort, but often mistakes Humans for trash.",
     "relations": [
         {
             "hero": "",
@@ -23,8 +23,8 @@
             "def": 72,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -35,8 +35,8 @@
             "def": 525,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -47,7 +47,7 @@
             "def": 603,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
+            "eff": 0,
             "efr": 0.03,
             "dac": 0.05
         },
@@ -59,8 +59,8 @@
             "def": 652,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -71,8 +71,8 @@
             "def": 749,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -171,31 +171,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.5,
                     "soulburn": 0.5
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "def",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "def_rate",
                     "value": 0.7,
                     "soulburn": 0.7
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (def_rate * hero_def)) * pow! * constant",
+                "value": "((0.5 * hero_atk) + (0.7 * hero_def)) * 1.0 * 1.871",
+                "simplified": "((0.9355 * hero_atk) + (1.3097 * hero_def))",
+                "soulburn": "((0.5 * hero_atk) + (0.7 * hero_def)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((0.9355 * hero_atk) + (1.3097 * hero_def))"
+            }
         },
         {
             "isPassive": true,
@@ -291,21 +287,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -405,31 +402,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.4,
                     "soulburn": 0.5
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "def",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "def_rate",
                     "value": 0.5,
                     "soulburn": 0.6
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (def_rate * hero_def)) * pow! * constant",
+                "value": "((0.4 * hero_atk) + (0.5 * hero_def)) * 1.0 * 1.871",
+                "simplified": "((0.7484 * hero_atk) + (0.9355 * hero_def))",
+                "soulburn": "((0.5 * hero_atk) + (0.6 * hero_def)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((0.9355 * hero_atk) + (1.1226 * hero_def))"
+            }
         }
     ],
     "specialtySkill": {
@@ -641,5 +634,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "",
+    "description": "High-tech machinery\\nmodeled after Gigantes"
 }

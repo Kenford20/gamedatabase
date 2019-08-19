@@ -11,7 +11,7 @@
     "relations": [
         {
             "hero": "wanda",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "zerato",
@@ -35,8 +35,8 @@
             "def": 59,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -47,8 +47,8 @@
             "def": 435,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -59,8 +59,8 @@
             "def": 461,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -71,8 +71,8 @@
             "def": 539,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -83,8 +83,8 @@
             "def": 571,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -183,21 +183,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 1.05,
                     "soulburn": 1.05
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * 1.05 * 1.871",
+                "simplified": "((1.9646 * hero_atk))",
+                "soulburn": "((1.0 * hero_atk)) * 1.05 * 1.871",
+                "simplifiedSoulburn": "((1.9646 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
@@ -296,21 +297,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 1.05,
                     "soulburn": 1.05
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 1.5,
                     "soulburn": 1.5
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.5 * hero_atk)) * 1.05 * 1.871",
+                "simplified": "((2.9468 * hero_atk))",
+                "soulburn": "((1.5 * hero_atk)) * 1.05 * 1.871",
+                "simplifiedSoulburn": "((2.9468 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
@@ -408,21 +410,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.7,
                     "soulburn": 0.7
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((0.7 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((1.3097 * hero_atk))",
+                "soulburn": "((0.7 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.3097 * hero_atk))"
+            }
         }
     ],
     "specialtySkill": {
@@ -660,5 +663,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "Order! I am an officer of the Reingar Public Security Club, Azalea Pormia!",
+    "description": "A faithful officer with a duty to maintain order"
 }

@@ -11,19 +11,19 @@
     "relations": [
         {
             "hero": "dizzy",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "baiken",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "i-no",
-            "relationType": "grudge"
+            "relationType": "hostile"
         },
         {
             "hero": "yuna",
-            "relationType": "trust"
+            "relationType": "friendly"
         }
     ],
     "stats": {
@@ -35,8 +35,8 @@
             "def": 69,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -47,8 +47,8 @@
             "def": 446,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -59,8 +59,8 @@
             "def": 446,
             "chc": 0.19,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -71,8 +71,8 @@
             "def": 553,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -83,8 +83,8 @@
             "def": 553,
             "chc": 0.27,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -183,21 +183,28 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
+                },
+                {
+                    "name": "skill_dmg_rate",
+                    "description": "If target has no buffs",
+                    "value": 0.2,
+                    "soulburn": 0.2
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((skill_dmg_rate * hero_special_count))) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * (1 + ((0.2 * hero_special_count))) * 1.0 * 1.871",
+                "simplified": "((1.871 * hero_atk)) * (1 + ((0.2 * hero_special_count)))",
+                "soulburn": "((1.0 * hero_atk)) * (1 + ((0.2 * hero_special_count))) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.871 * hero_atk)) * (1 + ((0.2 * hero_special_count)))"
+            }
         },
         {
             "isPassive": true,
@@ -295,21 +302,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
+                },
+                {
+                    "name": "hp_rate",
+                    "value": 0.04,
+                    "soulburn": 0.04
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (hp_rate * hero_hp)) * pow! * constant",
+                "value": "((1.0 * hero_atk) + (0.04 * hero_hp)) * 1.0 * 1.871",
+                "simplified": "((1.871 * hero_atk) + (0.0748 * hero_hp))",
+                "soulburn": "((1.0 * hero_atk) + (0.04 * hero_hp)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.871 * hero_atk) + (0.0748 * hero_hp))"
+            }
         },
         {
             "isPassive": false,
@@ -407,21 +420,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 1.6,
                     "soulburn": 1.6
+                },
+                {
+                    "name": "hp_rate",
+                    "value": 0.05,
+                    "soulburn": 0.05
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (hp_rate * hero_hp)) * pow! * constant",
+                "value": "((1.6 * hero_atk) + (0.05 * hero_hp)) * 1.0 * 1.871",
+                "simplified": "((2.9936 * hero_atk) + (0.0936 * hero_hp))",
+                "soulburn": "((1.6 * hero_atk) + (0.05 * hero_hp)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((2.9936 * hero_atk) + (0.0936 * hero_hp))"
+            }
         }
     ],
     "specialtySkill": {
@@ -667,5 +686,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "You'd better do your best if you wish to live.",
+    "description": "The Flame of Corruption\\nwho scorches all enemies"
 }

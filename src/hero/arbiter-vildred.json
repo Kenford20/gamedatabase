@@ -11,35 +11,35 @@
     "relations": [
         {
             "hero": "tenebria",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "yuna",
-            "relationType": "grudge"
+            "relationType": "hostile"
         },
         {
             "hero": "krau",
-            "relationType": "grudge"
+            "relationType": "hostile"
         },
         {
             "hero": "ras",
-            "relationType": "grudge"
+            "relationType": "hostile"
         },
         {
             "hero": "ludwig",
-            "relationType": "grudge"
+            "relationType": "hostile"
         },
         {
             "hero": "mercedes",
-            "relationType": "grudge"
+            "relationType": "hostile"
         },
         {
             "hero": "nilgal",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "iseria",
-            "relationType": "grudge"
+            "relationType": "hostile"
         }
     ],
     "stats": {
@@ -51,8 +51,8 @@
             "def": 65,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -63,8 +63,8 @@
             "def": 421,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -75,8 +75,8 @@
             "def": 421,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -87,8 +87,8 @@
             "def": 522,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -99,8 +99,8 @@
             "def": 522,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -216,21 +216,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.975,
                     "soulburn": 0.975
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((0.975 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((1.8242 * hero_atk))",
+                "soulburn": "((0.975 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.8242 * hero_atk))"
+            }
         },
         {
             "isPassive": true,
@@ -302,21 +303,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -431,21 +433,28 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.85,
                     "soulburn": 0.85
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.04,
-                    "soulburn": 1.29
+                    "name": "atk_rate",
+                    "value": [
+                        1.04,
+                        1.23
+                    ],
+                    "soulburn": [
+                        1.29,
+                        1.55
+                    ]
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "(([1.04, 1.23] * hero_atk)) * 0.85 * 1.871",
+                "simplified": "(([1.654, 1.9561] * hero_atk))",
+                "soulburn": "(([1.29, 1.55] * hero_atk)) * 0.85 * 1.871",
+                "simplifiedSoulburn": "(([2.0516, 2.465] * hero_atk))"
+            }
         }
     ],
     "specialtySkill": {
@@ -691,5 +700,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "Do you think you can handle the power I possess?",
+    "description": "A knight who has embraced the boundless power of darkness"
 }

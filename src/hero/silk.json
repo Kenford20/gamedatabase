@@ -11,11 +11,11 @@
     "relations": [
         {
             "hero": "rin",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "basar",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "iseria",
@@ -23,7 +23,7 @@
         },
         {
             "hero": "kiris",
-            "relationType": "trust"
+            "relationType": "friendly"
         }
     ],
     "stats": {
@@ -35,8 +35,8 @@
             "def": 61,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -47,8 +47,8 @@
             "def": 418,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -59,8 +59,8 @@
             "def": 418,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -71,8 +71,8 @@
             "def": 518,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -83,8 +83,8 @@
             "def": 518,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -213,31 +213,47 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.9,
                     "soulburn": 0.9
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.9,
                     "soulburn": 0.9
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "multiplicative",
-                    "stat": "spd",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "spd_rate",
                     "value": 0.00075,
                     "soulburn": 0.00075
+                },
+                {
+                    "name": "skill_dmg_list",
+                    "description": "Increased damage per focus over 2.",
+                    "value": [
+                        0,
+                        0,
+                        0.03,
+                        0.03,
+                        0.04,
+                        0.05
+                    ],
+                    "soulburn": [
+                        0,
+                        0,
+                        0.03,
+                        0.03,
+                        0.04,
+                        0.05
+                    ]
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((spd_rate * hero_spd) * (skill_dmg_list))) * pow! * constant",
+                "value": "((0.9 * hero_atk)) * (1 + ((0.00075 * hero_spd) * ([0, 0, 0.03, 0.03, 0.04, 0.05]))) * 0.9 * 1.871",
+                "simplified": "((1.5155 * hero_atk)) * (1 + ((0.00075 * hero_spd) * ([0, 0, 0.03, 0.03, 0.04, 0.05])))",
+                "soulburn": "((0.9 * hero_atk)) * (1 + ((0.00075 * hero_spd) * ([0, 0, 0.03, 0.03, 0.04, 0.05]))) * 0.9 * 1.871",
+                "simplifiedSoulburn": "((1.5155 * hero_atk)) * (1 + ((0.00075 * hero_spd) * ([0, 0, 0.03, 0.03, 0.04, 0.05])))"
+            }
         },
         {
             "isPassive": true,
@@ -320,21 +336,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -421,21 +438,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 1.05,
                     "soulburn": 1.05
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.85,
                     "soulburn": 0.85
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((0.85 * hero_atk)) * 1.05 * 1.871",
+                "simplified": "((1.6699 * hero_atk))",
+                "soulburn": "((0.85 * hero_atk)) * 1.05 * 1.871",
+                "simplifiedSoulburn": "((1.6699 * hero_atk))"
+            }
         }
     ],
     "specialtySkill": {
@@ -681,5 +699,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "I love running with the wind!",
+    "description": "A gentle Elf walking within the Eternal Wind"
 }

@@ -5,13 +5,13 @@
     "classType": "knight",
     "element": "fire",
     "zodiac": "leo",
-    "specialtyChangeName": "",
+    "specialtyChangeName": "chaos-inquisitor",
     "selfSkillBarName": "",
     "background": "The main duty of the Church of Ilryos Butcher Corps is to track down and punish traitors or fugitives.",
     "relations": [
         {
             "hero": "taranor-guard",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "sigret",
@@ -20,15 +20,15 @@
     ],
     "stats": {
         "lv1BaseStarNoAwaken": {
-            "cp": 2223,
-            "atk": 221,
-            "hp": 670,
+            "cp": 1112,
+            "atk": 61,
+            "hp": 250,
             "spd": 95,
             "def": 67,
-            "chc": 0.21,
+            "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -39,8 +39,8 @@
             "def": 489,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -51,8 +51,8 @@
             "def": 489,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -63,8 +63,8 @@
             "def": 606,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -75,8 +75,8 @@
             "def": 606,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -192,21 +192,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((1.871 * hero_atk))",
+                "soulburn": "((1.0 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.871 * hero_atk))"
+            }
         },
         {
             "isPassive": true,
@@ -276,21 +277,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -403,21 +405,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.85,
                     "soulburn": 0.85
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 1.5,
                     "soulburn": 2.2
+                },
+                {
+                    "name": "self_hp_missing_rate",
+                    "value": 0.005,
+                    "soulburn": 0.005
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((self_hp_missing_rate * hero_hp_lost_percent))) * pow! * constant",
+                "value": "((1.5 * hero_atk)) * (1 + ((0.005 * hero_hp_lost_percent))) * 0.85 * 1.871",
+                "simplified": "((2.3855 * hero_atk)) * (1 + ((0.005 * hero_hp_lost_percent)))",
+                "soulburn": "((2.2 * hero_atk)) * (1 + ((0.005 * hero_hp_lost_percent))) * 0.85 * 1.871",
+                "simplifiedSoulburn": "((3.4988 * hero_atk)) * (1 + ((0.005 * hero_hp_lost_percent)))"
+            }
         }
     ],
     "specialtySkill": {
@@ -655,5 +663,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "God wills it!",
+    "description": "Butcher Corps soldiers fighting for the Church of Ilryos"
 }

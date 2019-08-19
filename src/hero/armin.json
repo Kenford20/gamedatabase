@@ -7,23 +7,23 @@
     "zodiac": "capricorn",
     "specialtyChangeName": "",
     "selfSkillBarName": "",
-    "background": "A particularly ticklish feline Suin, Armin is the valiant and cheerful Commander of the Longtail Company. However, she is easily tempted, and quickly convinced to go along with the whims of her fellow mercenaries. She loves to collect earrings but since her ears are so sensitive she's unable to wear them.",
+    "background": "A particularly ticklish feline Suin, Armin is the valiant and cheerful Commander of the Longtail Company. However, she is easily tempted, and quickly convinced to go along with the whims of her fellow mercenaries. She loves to collect earrings but since her ears are so sensitive she's unable to actually wear them.",
     "relations": [
         {
             "hero": "kluri",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "basar",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "cartuja",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "otillie",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "cidd",
@@ -39,8 +39,8 @@
             "def": 80,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -51,8 +51,8 @@
             "def": 551,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -63,7 +63,7 @@
             "def": 633,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
+            "eff": 0,
             "efr": 0.06,
             "dac": 0.05
         },
@@ -75,8 +75,8 @@
             "def": 683,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -87,7 +87,7 @@
             "def": 785,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
+            "eff": 0,
             "efr": 0.18,
             "dac": 0.05
         }
@@ -219,31 +219,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.9,
                     "soulburn": 0.9
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.8,
                     "soulburn": 0.8
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "def",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "def_rate",
                     "value": 0.6,
                     "soulburn": 0.6
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (def_rate * hero_def)) * pow! * constant",
+                "value": "((0.8 * hero_atk) + (0.6 * hero_def)) * 0.9 * 1.871",
+                "simplified": "((1.3471 * hero_atk) + (1.0103 * hero_def))",
+                "soulburn": "((0.8 * hero_atk) + (0.6 * hero_def)) * 0.9 * 1.871",
+                "simplifiedSoulburn": "((1.3471 * hero_atk) + (1.0103 * hero_def))"
+            }
         },
         {
             "isPassive": false,
@@ -360,31 +356,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.9,
                     "soulburn": 0.9
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.3,
                     "soulburn": 0.3
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "def",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "def_rate",
                     "value": 0.5,
                     "soulburn": 0.5
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (def_rate * hero_def)) * pow! * constant",
+                "value": "((0.3 * hero_atk) + (0.5 * hero_def)) * 0.9 * 1.871",
+                "simplified": "((0.5052 * hero_atk) + (0.8419 * hero_def))",
+                "soulburn": "((0.3 * hero_atk) + (0.5 * hero_def)) * 0.9 * 1.871",
+                "simplifiedSoulburn": "((0.5052 * hero_atk) + (0.8419 * hero_def))"
+            }
         },
         {
             "isPassive": false,
@@ -438,21 +430,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         }
     ],
     "specialtySkill": {
@@ -698,5 +691,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "Oh, did you need something? Just let me know!",
+    "description": "Unmatched in her bravery, commander of the Longtail Company"
 }

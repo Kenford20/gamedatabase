@@ -11,7 +11,7 @@
     "relations": [
         {
             "hero": "ravi",
-            "relationType": "grudge"
+            "relationType": "hostile"
         }
     ],
     "stats": {
@@ -23,8 +23,8 @@
             "def": 75,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -35,8 +35,8 @@
             "def": 483,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -47,8 +47,8 @@
             "def": 497,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -59,8 +59,8 @@
             "def": 599,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -71,8 +71,8 @@
             "def": 652,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -188,21 +188,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.95,
                     "soulburn": 0.95
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.1,
+                    "name": "atk_rate",
+                    "value": 1,
                     "soulburn": 1.8
+                },
+                {
+                    "name": "hp_rate",
+                    "value": 0.12,
+                    "soulburn": 0.2
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (hp_rate * hero_hp)) * pow! * constant",
+                "value": "((1.0 * hero_atk) + (0.12 * hero_hp)) * 0.95 * 1.871",
+                "simplified": "((1.7774 * hero_atk) + (0.2133 * hero_hp))",
+                "soulburn": "((1.8 * hero_atk) + (0.2 * hero_hp)) * 0.95 * 1.871",
+                "simplifiedSoulburn": "((3.1994 * hero_atk) + (0.3555 * hero_hp))"
+            }
         },
         {
             "isPassive": true,
@@ -272,21 +278,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -401,21 +408,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.95,
                     "soulburn": 0.95
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.8,
-                    "soulburn": 1.8
+                    "name": "atk_rate",
+                    "value": 1.3,
+                    "soulburn": 1.3
+                },
+                {
+                    "name": "hp_rate",
+                    "value": 0.2,
+                    "soulburn": 0.2
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (hp_rate * hero_hp)) * pow! * constant",
+                "value": "((1.3 * hero_atk) + (0.2 * hero_hp)) * 0.95 * 1.871",
+                "simplified": "((2.3107 * hero_atk) + (0.3555 * hero_hp))",
+                "soulburn": "((1.3 * hero_atk) + (0.2 * hero_hp)) * 0.95 * 1.871",
+                "simplifiedSoulburn": "((2.3107 * hero_atk) + (0.3555 * hero_hp))"
+            }
         }
     ],
     "specialtySkill": {
@@ -661,5 +674,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "I have descended to fulfill the prophecy with my own hands.",
+    "description": "A girl born amidst calamity, revered as the god of war"
 }

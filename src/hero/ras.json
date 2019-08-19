@@ -11,35 +11,35 @@
     "relations": [
         {
             "hero": "ruele-of-light",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "judge-kise",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "krau",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "iseria",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "ludwig",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "aither",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "mercedes",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "yuna",
-            "relationType": "trust"
+            "relationType": "friendly"
         }
     ],
     "stats": {
@@ -51,7 +51,7 @@
             "def": 74,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
+            "eff": 0,
             "efr": 0.06,
             "dac": 0.05
         },
@@ -63,8 +63,8 @@
             "def": 497,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -75,7 +75,7 @@
             "def": 511,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
+            "eff": 0,
             "efr": 0.12,
             "dac": 0.05
         },
@@ -87,8 +87,8 @@
             "def": 617,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -99,7 +99,7 @@
             "def": 672,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
+            "eff": 0,
             "efr": 0.12,
             "dac": 0.05
         }
@@ -110,11 +110,11 @@
             "soulBurn": 0,
             "selfSkillBarValue": 0,
             "soulBurnEffect": "",
-            "awakenUpgrade": false,
+            "awakenUpgrade": true,
             "cooldown": 0,
             "name": "X-Slash",
             "soulAcquire": 1,
-            "description": "Swing the sword and attack the enemy. Damage increases proportionally to your maximum Vitality",
+            "description": "Attacks with a sword, with 75% chance to dispel a buff. Damage dealt increases proportional to the caster's max Health.",
             "enhancement": [
                 {
                     "description": "+5% damage dealt",
@@ -199,31 +199,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.9,
                     "soulburn": 0.9
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "hp",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "hp_rate",
                     "value": 0.04,
                     "soulburn": 0.04
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (hp_rate * hero_hp)) * pow! * constant",
+                "value": "((0.9 * hero_atk) + (0.04 * hero_hp)) * 1.0 * 1.871",
+                "simplified": "((1.6839 * hero_atk) + (0.0748 * hero_hp))",
+                "soulburn": "((0.9 * hero_atk) + (0.04 * hero_hp)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.6839 * hero_atk) + (0.0748 * hero_hp))"
+            }
         },
         {
             "isPassive": false,
@@ -319,32 +315,33 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 1.5,
                     "soulburn": 1.5
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.5 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((2.8065 * hero_atk))",
+                "soulburn": "((1.5 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((2.8065 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
             "soulBurn": 10,
             "selfSkillBarValue": 0,
             "soulBurnEffect": "",
-            "awakenUpgrade": true,
-            "cooldown": 5,
+            "awakenUpgrade": false,
+            "cooldown": 4,
             "name": "Sword of the Heir",
             "soulAcquire": 2,
-            "description": "Strongly attacks with a swordstorm, recovering Health prportional to damage dealt, and increasing Defense of the caster for 2 turns. Damage dealt increases proportional to max Health of caster.",
+            "description": "Strongly attacks all enemies with a swordstorm, recovering Health and increasing Defense of the caster for 2 turns. Damage dealt and amount recovered increases proportional to the caster's max Health.",
             "enhancement": [
                 {
                     "description": "+5% damage dealt",
@@ -373,7 +370,7 @@
                     ]
                 },
                 {
-                    "description": "-1 turn cooldown",
+                    "description": "+5% damage dealt",
                     "resources": [
                         {
                             "item": "gold",
@@ -431,31 +428,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.9,
                     "soulburn": 0.9
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "hp",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "hp_rate",
                     "value": 0.04,
                     "soulburn": 0.04
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (hp_rate * hero_hp)) * pow! * constant",
+                "value": "((0.9 * hero_atk) + (0.04 * hero_hp)) * 1.0 * 1.871",
+                "simplified": "((1.6839 * hero_atk) + (0.0748 * hero_hp))",
+                "soulburn": "((0.9 * hero_atk) + (0.04 * hero_hp)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.6839 * hero_atk) + (0.0748 * hero_hp))"
+            }
         }
     ],
     "specialtySkill": {
@@ -693,5 +686,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "I'll do my duty today, too!",
+    "description": "Heir of the Covenant, a defender of the world"
 }

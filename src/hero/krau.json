@@ -11,23 +11,23 @@
     "relations": [
         {
             "hero": "ras",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "ludwig",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "taranor-royal-guard",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "schuri",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "taranor-guard",
-            "relationType": "trust"
+            "relationType": "friendly"
         }
     ],
     "stats": {
@@ -39,8 +39,8 @@
             "def": 86,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -51,8 +51,8 @@
             "def": 557,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -63,7 +63,7 @@
             "def": 607,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
+            "eff": 0,
             "efr": 0.06,
             "dac": 0.05
         },
@@ -75,8 +75,8 @@
             "def": 690,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -87,7 +87,7 @@
             "def": 752,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
+            "eff": 0,
             "efr": 0.18,
             "dac": 0.05
         }
@@ -206,31 +206,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.7,
                     "soulburn": 0.7
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "hp",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "hp_rate",
                     "value": 0.085,
                     "soulburn": 0.085
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (hp_rate * hero_hp)) * pow! * constant",
+                "value": "((0.7 * hero_atk) + (0.085 * hero_hp)) * 1.0 * 1.871",
+                "simplified": "((1.3097 * hero_atk) + (0.159 * hero_hp))",
+                "soulburn": "((0.7 * hero_atk) + (0.085 * hero_hp)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.3097 * hero_atk) + (0.159 * hero_hp))"
+            }
         },
         {
             "isPassive": false,
@@ -358,31 +354,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.8,
                     "soulburn": 0.8
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "hp",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "hp_rate",
                     "value": 0.13,
                     "soulburn": 0.13
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk) + (hp_rate * hero_hp)) * pow! * constant",
+                "value": "((0.8 * hero_atk) + (0.13 * hero_hp)) * 1.0 * 1.871",
+                "simplified": "((1.4968 * hero_atk) + (0.2432 * hero_hp))",
+                "soulburn": "((0.8 * hero_atk) + (0.13 * hero_hp)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((1.4968 * hero_atk) + (0.2432 * hero_hp))"
+            }
         },
         {
             "isPassive": false,
@@ -437,21 +429,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.3,
                     "soulburn": 0.3
+                },
+                {
+                    "name": "self_hp_missing_value",
+                    "value": 0.53571,
+                    "soulburn": 0.53571
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((0.3 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((0.5613 * hero_atk))",
+                "soulburn": "((0.3 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((0.5613 * hero_atk))"
+            }
         }
     ],
     "specialtySkill": {
@@ -697,5 +695,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "Greetings, my name is Kraureit Roheil.",
+    "description": "A self-confident and forward-looking knight"
 }

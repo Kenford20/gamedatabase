@@ -11,11 +11,11 @@
     "relations": [
         {
             "hero": "vildred",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "diene",
-            "relationType": "grudge"
+            "relationType": "hostile"
         },
         {
             "hero": "nilgal",
@@ -27,7 +27,7 @@
         },
         {
             "hero": "ras",
-            "relationType": "grudge"
+            "relationType": "hostile"
         }
     ],
     "stats": {
@@ -39,8 +39,8 @@
             "def": 60,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -51,8 +51,8 @@
             "def": 390,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -63,8 +63,8 @@
             "def": 390,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -75,8 +75,8 @@
             "def": 483,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -87,8 +87,8 @@
             "def": 483,
             "chc": 0.23,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -206,21 +206,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 0.85,
                     "soulburn": 1.35
+                },
+                {
+                    "name": "self_hp_current_rate",
+                    "value": 0.0015,
+                    "soulburn": 0.0015
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((self_hp_current_rate * hero_hp_remaining_percent))) * pow! * constant",
+                "value": "((0.85 * hero_atk)) * (1 + ((0.0015 * hero_hp_remaining_percent))) * 1.0 * 1.871",
+                "simplified": "((1.5903 * hero_atk)) * (1 + ((0.0015 * hero_hp_remaining_percent)))",
+                "soulburn": "((1.35 * hero_atk)) * (1 + ((0.0015 * hero_hp_remaining_percent))) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((2.5259 * hero_atk)) * (1 + ((0.0015 * hero_hp_remaining_percent)))"
+            }
         },
         {
             "isPassive": true,
@@ -292,21 +298,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "value": 0,
+                    "soulburn": 0
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 0.0,
-                    "soulburn": 0.0
+                    "name": "atk_rate",
+                    "value": 0,
+                    "soulburn": 0
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "",
+                "value": "",
+                "simplified": "",
+                "soulburn": "",
+                "simplifiedSoulburn": ""
+            }
         },
         {
             "isPassive": false,
@@ -421,21 +428,27 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.9,
                     "soulburn": 0.9
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 1.7,
                     "soulburn": 1.7
+                },
+                {
+                    "name": "self_hp_current_rate",
+                    "value": 0.003,
+                    "soulburn": 0.003
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((self_hp_current_rate * hero_hp_remaining_percent))) * pow! * constant",
+                "value": "((1.7 * hero_atk)) * (1 + ((0.003 * hero_hp_remaining_percent))) * 0.9 * 1.871",
+                "simplified": "((2.8626 * hero_atk)) * (1 + ((0.003 * hero_hp_remaining_percent)))",
+                "soulburn": "((1.7 * hero_atk)) * (1 + ((0.003 * hero_hp_remaining_percent))) * 0.9 * 1.871",
+                "simplifiedSoulburn": "((2.8626 * hero_atk)) * (1 + ((0.003 * hero_hp_remaining_percent)))"
+            }
         }
     ],
     "specialtySkill": {
@@ -681,5 +694,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "I have descended in answer to your call.",
+    "description": "A king of shadow who deals in grudges"
 }

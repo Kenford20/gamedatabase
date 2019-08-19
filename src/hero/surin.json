@@ -11,11 +11,11 @@
     "relations": [
         {
             "hero": "serila",
-            "relationType": "trust"
+            "relationType": "friendly"
         },
         {
             "hero": "otillie",
-            "relationType": "grudge"
+            "relationType": "hostile"
         }
     ],
     "stats": {
@@ -27,8 +27,8 @@
             "def": 58,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarNoAwaken": {
@@ -39,8 +39,8 @@
             "def": 401,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv50FiveStarFullyAwakened": {
@@ -52,7 +52,7 @@
             "chc": 0.19,
             "chd": 1.5,
             "eff": 0.12,
-            "efr": 0.0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarNoAwaken": {
@@ -63,8 +63,8 @@
             "def": 497,
             "chc": 0.15,
             "chd": 1.5,
-            "eff": 0.0,
-            "efr": 0.0,
+            "eff": 0,
+            "efr": 0,
             "dac": 0.05
         },
         "lv60SixStarFullyAwakened": {
@@ -76,7 +76,7 @@
             "chc": 0.27,
             "chd": 1.5,
             "eff": 0.12,
-            "efr": 0.0,
+            "efr": 0,
             "dac": 0.05
         }
     },
@@ -177,21 +177,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.9,
                     "soulburn": 0.9
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "name": "atk_rate",
+                    "value": 1,
+                    "soulburn": 1
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.0 * hero_atk)) * 0.9 * 1.871",
+                "simplified": "((1.6839 * hero_atk))",
+                "soulburn": "((1.0 * hero_atk)) * 0.9 * 1.871",
+                "simplifiedSoulburn": "((1.6839 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
@@ -290,21 +291,22 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
-                    "value": 1.0,
-                    "soulburn": 1.0
+                    "value": 1,
+                    "soulburn": 1
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 1.4,
                     "soulburn": 1.4
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * pow! * constant",
+                "value": "((1.4 * hero_atk)) * 1.0 * 1.871",
+                "simplified": "((2.6194 * hero_atk))",
+                "soulburn": "((1.4 * hero_atk)) * 1.0 * 1.871",
+                "simplifiedSoulburn": "((2.6194 * hero_atk))"
+            }
         },
         {
             "isPassive": false,
@@ -400,21 +402,40 @@
             "damageModifiers": [
                 {
                     "name": "pow",
-                    "section": "pow",
                     "value": 0.8,
                     "soulburn": 0.8
                 },
                 {
-                    "name": "statModifier",
-                    "description": "",
-                    "section": "additive",
-                    "stat": "atk",
-                    "type": "multiplier",
-                    "target": "self",
+                    "name": "atk_rate",
                     "value": 1.8,
                     "soulburn": 1.8
+                },
+                {
+                    "name": "skill_dmg_list",
+                    "description": "Damage increased per bleed.",
+                    "value": [
+                        0.4,
+                        0.55,
+                        0.7,
+                        0.85,
+                        1
+                    ],
+                    "soulburn": [
+                        0.4,
+                        0.55,
+                        0.7,
+                        0.85,
+                        1
+                    ]
                 }
-            ]
+            ],
+            "simpleDmgMod": {
+                "description": "((atk_rate * hero_atk)) * (1 + ((skill_dmg_list))) * pow! * constant",
+                "value": "((1.8 * hero_atk)) * (1 + (([0.4, 0.55, 0.7, 0.85, 1.0]))) * 0.8 * 1.871",
+                "simplified": "((2.6942 * hero_atk)) * (1 + (([0.4, 0.55, 0.7, 0.85, 1.0])))",
+                "soulburn": "((1.8 * hero_atk)) * (1 + (([0.4, 0.55, 0.7, 0.85, 1.0]))) * 0.8 * 1.871",
+                "simplifiedSoulburn": "((2.6942 * hero_atk)) * (1 + (([0.4, 0.55, 0.7, 0.85, 1.0])))"
+            }
         }
     ],
     "specialtySkill": {
@@ -660,5 +681,7 @@
                 }
             ]
         }
-    ]
+    ],
+    "summonQuote": "Nice to meet you, call me Surin.",
+    "description": "A calm and composed warrior from the East"
 }
