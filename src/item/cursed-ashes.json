@@ -3,6 +3,7 @@
     "type": "catalyst",
     "rarity": 3,
     "description": "Ashes left behind from a scorching flame, said to be used in curse magic.",
+    "zodiac": "capricorn",
     "apShops": [
         {
             "chapter": "Chapter 10",

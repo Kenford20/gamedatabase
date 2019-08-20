@@ -3,27 +3,37 @@
     "type": "catalyst",
     "rarity": 5,
     "description": "A brightly colored stone containing the life energy of the creatures of Orbis.",
+    "zodiac": "aries",
     "apShops": [
         {
-            "chapter": "Chapter 1",
+            "map": "RIT",
+            "difficulty": "N",
+            "chapter": 1,
             "quantity": 5,
             "cost": 120
         }
     ],
     "locations": [
         {
-            "node": "Normal 1-7",
-            "name": "Grimroa Ravine",
+            "map": "RIT",
+            "difficulty": "N",
+            "chapter": 1,
+            "node": 7,
             "mobcount": 9
         },
         {
-            "node": "World 1-7",
-            "name": "Grimroa Ravine",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 1,
+            "node": 7,
             "mobcount": 9
         },
+
         {
-            "node": "World 3S-S1",
-            "name": "Perilous Shade",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": "3S",
+            "node": "S1",
             "mobcount": 11
         }
     ]

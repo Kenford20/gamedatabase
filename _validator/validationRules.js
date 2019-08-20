@@ -22,7 +22,7 @@ module.exports = {
 		'summonQuote',
 		'description',
 	],
-	item: ['name', 'locations', 'description', 'type', 'rarity', 'apShops','locations'],
+	item: ['name', 'locations', 'description', 'type', 'rarity', 'apShops', 'locations'],
 	latest: ['hero', 'artifact'],
 	voice: ['_id', 'voice'],
 	creator: ['title', 'description', 'img', 'social'],

@@ -1,31 +1,46 @@
 
-Adventure
-World (Unrecorded History)
-A Crack in the World
+Difficulty
+----------
+N
+    Normal (Adventure)
+W-UH
+    World (Unrecorded History)
+CRK
+    A Crack in the World
 
-Ritania
+
+RIT
+    Ritania
 ----------
 1 Ezera
+    7 Grimroa Ravine
 2 Reingar
+    2 Arcsoru Library
 2S Levulin
 3 Savara
 3S Farche Frontier
+    S1 Perilous Shade
 4-1 Solayu Swamp
 4-2 Solayu Forest
 5 Dun Blyraia
 5S Sun Desert
 6 South Wetheric Moor
+    2 Frost Flower Hill
+    5 Steel Wall Fortress
+    6 Steel Wall Training Ground
 7 North Wetheric Moor
     4 Dead Hill
     S6 Seven Flags Fortress
 8 Duselnorc
 8S Breezy Plain
 9-1 West Taranor
+    4 Whispering Forest
 9-2 Central Taranor
 10 East Taranor
 
 
-Cidonia
+CID
+    Cidonia
 ----------
 1 Jerdun Borderlands
 1S Pupuran Ruins
@@ -50,21 +65,21 @@ Cidonia
 
     "apShops": [
         {
-            "map": "Ritania",
-            "difficulty": "World (Unrecorded History)",
-            "chapter": "7 North Wetheric Moor",
-            "quantity": 2,
-            "cost": 400
-        }
+            "map": "RIT",
+            "difficulty": "N",
+            "chapter": 7,
+            "quantity": 5,
+            "cost": 120
+        },
     ],
     "locations": [
         {
-            "map": "Ritania",
-            "difficulty": "World (Unrecorded History)",
-            "name": "Seven Flags Fortress",
-            "node": "7-S6",
-            "mobcount": "?"
-        }
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 6,
+            "node": 2,
+            "mobcount": 6
+        },
     ]
 
 

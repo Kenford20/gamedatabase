@@ -3,42 +3,43 @@
     "type": "catalyst",
     "rarity": 5,
     "description": "A nucleus with an unknown source of power, some say it can be used to move anything in the world.",
+    "zodiac": "pisces",
     "apShops": [
         {
-            "map": "Ritania",
-            "difficulty": "World (Unrecorded History)",
-            "chapter": "7 North Wetheric Moor",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 7,
             "quantity": 2,
             "cost": 400
         }
     ],
     "locations": [
         {
-            "map": "Ritania",
-            "difficulty": "World (Unrecorded History)",
-            "name": "A Crack in the World",
-            "node": "3S-Crack",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": "3S",
+            "node": "Crack",
             "mobcount": "?"
         },
         {
-            "map": "Ritania",
-            "difficulty": "World (Unrecorded History)",
-            "name": "A Crack in the World",
-            "node": "5S-Crack",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": "5S",
+            "node": "Crack",
             "mobcount": "?"
         },
         {
-            "map": "Ritania",
-            "difficulty": "World (Unrecorded History)",
-            "name": "?",
-            "node": "7-4",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 7,
+            "node": 4,
             "mobcount": "?"
         },
         {
-            "map": "Ritania",
-            "difficulty": "World (Unrecorded History)",
-            "name": "Seven Flags Fortress",
-            "node": "7-S6",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 7,
+            "node": "S6",
             "mobcount": "?"
         }
     ]
