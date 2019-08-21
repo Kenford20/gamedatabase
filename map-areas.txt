@@ -18,6 +18,7 @@ RIT
     2 Arcsoru Library
 2S Levulin
 3 Savara
+    5 Weeping Vixen Waterway
 3S Farche Frontier
     S1 Perilous Shade
 4-1 Solayu Swamp
@@ -32,11 +33,16 @@ RIT
     4 Dead Hill
     S6 Seven Flags Fortress
 8 Duselnorc
+    7 Garden of a Shadow Star
+    8 Crescent Parrot Altar
+    10 Snowflake Hall
 8S Breezy Plain
 9-1 West Taranor
     4 Whispering Forest
 9-2 Central Taranor
 10 East Taranor
+    S2 Black-Tail Spire
+    S3 Silver Monarch Fortress
 
 
 CID

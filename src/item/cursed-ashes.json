@@ -6,45 +6,61 @@
     "zodiac": "capricorn",
     "apShops": [
         {
-            "chapter": "Chapter 10",
+            "map": "RIT",
+            "difficulty": "N",
+            "chapter": 10,
             "quantity": 5,
             "cost": 120
         },
         {
-            "chapter": "Chapter 8S",
+            "map": "RIT",
+            "difficulty": "N",
+            "chapter": "8S",
             "quantity": 5,
             "cost": 120
         }
     ],
     "locations": [
         {
-            "node": "Normal 3-5",
-            "name": "Weeping Vixen Waterway",
+            "map": "RIT",
+            "difficulty": "N",
+            "chapter": 3,
+            "node": 5,
             "mobcount": 10
         },
         {
-            "node": "World 8-7",
-            "name": "Garden of a Shadow Star",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 8,
+            "node": 7,
             "mobcount": 4
         },
         {
-            "node": "World 8-8",
-            "name": "Crescent Parrot Altar",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 8,
+            "node": 8,
             "mobcount": 4
         },
         {
-            "node": "World 8-10",
-            "name": "Snowflake Hall",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 8,
+            "node": 10,
             "mobcount": 4
         },
         {
-            "node": "World 10-S2",
-            "name": "Black-Tail Spire",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 10,
+            "node": "S2",
             "mobcount": 5
         },
         {
-            "node": "World 10-S3",
-            "name": "Silver Monarch Fortress",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 10,
+            "node": "S3",
             "mobcount": 5
         }
     ]
