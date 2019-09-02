@@ -1,15 +1,14 @@
 {
     "hero": [
+        "vivian",
+        "furious",
         "roaming-warrior-leo",
-        "chaos-inquisitor",
-        "seaside-bellona",
-        "apocalypse-ravi",
-        "lilibet"
+        "chaos-inquisitor"
     ],
     "artifact": [
+        "one-year-of-gratitude",
+        "dignus-orb",
         "rainbow-scale",
-        "reingars-special-drink",
-        "shepherds-of-chaos",
-        "proof-of-valor"
+        "reingars-special-drink"
     ]
 }
