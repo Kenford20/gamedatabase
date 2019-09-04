@@ -3,42 +3,57 @@
     "type": "catalyst",
     "rarity": 3,
     "description": "Those who sacrifice above and beyond the call of duty to prove their faith are given a badge with a little sun on it.",
+    "zodiac": "gemini",
     "apShops": [
         {
-            "chapter": "Chapter 7",
+            "map": "RIT",
+            "difficulty": "N",
+            "chapter": 7,
             "quantity": 5,
             "cost": 120
         },
         {
-            "chapter": "Chapter 9-1",
+            "map": "RIT",
+            "difficulty": "N",
+            "chapter": "9-1",
             "quantity": 5,
             "cost": 120
         }
     ],
     "locations": [
         {
-            "node": "Normal 4-9",
-            "name": "Imagination's Shade",
+            "map": "RIT",
+            "difficulty": "N",
+            "chapter": 4,
+            "node": 9,
             "mobcount": 10
         },
         {
-            "node": "World 4-8",
-            "name": "Little Flamingo Grove",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 4,
+            "node": 8,
             "mobcount": 4
         },
         {
-            "node": "World 9-5",
-            "name": "Broken Sword Ruins",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 9,
+            "node": 5,
             "mobcount": 4
         },
         {
-            "node": "World 9-10",
-            "name": "Klowbe Mountains",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 9,
+            "node": 10,
             "mobcount": 4
         },
         {
-            "node": "World 10-7",
-            "name": "Wood of the Reclusive Knight",
+            "map": "RIT",
+            "difficulty": "W-UH",
+            "chapter": 10,
+            "node": 7,
             "mobcount": 4
         }
     ]
