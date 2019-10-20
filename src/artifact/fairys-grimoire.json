@@ -18,5 +18,9 @@
             "atk": 39,
             "hp": 663
         }
-    }
+    },
+    "buffs": [
+        "stic_evasion_up"
+    ],
+    "debuffs": []
 }
