@@ -22,7 +22,8 @@
         }
     },
     "buffs": [
-        "stic_evasion_up"
+        "stic_evasion_up",
+        "stic_att_up"
     ],
     "debuffs": []
 }

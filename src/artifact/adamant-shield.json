@@ -23,7 +23,7 @@
         }
     },
     "buffs": [
-        "stic_cridmg_dn"
+        "stic_rcv_dmg_dn"
     ],
     "debuffs": []
 }

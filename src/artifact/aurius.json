@@ -22,7 +22,8 @@
         }
     },
     "buffs": [
-        "stic_def_up"
+        "stic_def_up",
+        "stic_share_dmg"
     ],
     "debuffs": []
 }

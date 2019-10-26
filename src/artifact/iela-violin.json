@@ -22,7 +22,7 @@
         }
     },
     "buffs": [
-        "efct_cleanse"
+        "efct_dispel"
     ],
     "debuffs": []
 }

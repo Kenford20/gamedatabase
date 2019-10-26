@@ -20,6 +20,8 @@
             "hp": 585
         }
     },
-    "buffs": [],
+    "buffs": [
+        "stic_exp_up"
+    ],
     "debuffs": []
 }

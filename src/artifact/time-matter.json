@@ -23,7 +23,7 @@
     },
     "buffs": [
         "efct_cd_dn",
-        "stic_att_up"
+        "stic_dmg_up_custom"
     ],
     "debuffs": []
 }

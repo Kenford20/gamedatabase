@@ -23,7 +23,7 @@
         }
     },
     "buffs": [
-        "stic_heal",
+        "stic_heal_custom",
         "efct_cr_up"
     ],
     "debuffs": []

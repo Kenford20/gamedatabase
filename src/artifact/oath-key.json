@@ -21,7 +21,7 @@
         }
     },
     "buffs": [
-        "stic_efctness_up"
+        "stic_eff_up_custom"
     ],
     "debuffs": []
 }

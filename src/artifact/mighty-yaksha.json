@@ -20,8 +20,8 @@
         }
     },
     "buffs": [
-        "stic_att_up",
-        "stic_def_up"
+        "stic_att_up_custom",
+        "stic_def_up_custom"
     ],
     "debuffs": []
 }

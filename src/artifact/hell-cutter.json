@@ -23,8 +23,8 @@
         }
     },
     "buffs": [
-        "stic_att_up",
-        "stic_cri_up"
+        "stic_att_up_custom",
+        "stic_cri_up_custom"
     ],
     "debuffs": []
 }

@@ -21,8 +21,8 @@
         }
     },
     "buffs": [
-        "stic_efctness_up",
-        "stic_evasion_up"
+        "stic_eff_up_custom",
+        "stic_custom_efr_up"
     ],
     "debuffs": []
 }

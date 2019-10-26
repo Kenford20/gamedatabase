@@ -21,7 +21,7 @@
         }
     },
     "buffs": [
-        "stic_cri_up"
+        "stic_cri_up_custom"
     ],
     "debuffs": []
 }

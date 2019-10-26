@@ -23,6 +23,11 @@
     },
     "buffs": [],
     "debuffs": [
-        "stic_rnd_debuf"
+        "efct_rnd_debuf",
+        "stic_att_dn",
+        "stic_blind",
+        "stic_silence",
+        "stic_sleep",
+        "stic_dot"
     ]
 }

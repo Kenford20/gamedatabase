@@ -21,7 +21,7 @@
         }
     },
     "buffs": [
-        "stic_def_up"
+        "stic_rcv_dmg_dn"
     ],
     "debuffs": []
 }

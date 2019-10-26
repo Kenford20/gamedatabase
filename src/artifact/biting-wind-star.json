@@ -20,7 +20,7 @@
         }
     },
     "buffs": [
-        "stic_cridmg_up"
+        "stic_cridmg_up_custom"
     ],
     "debuffs": []
 }
