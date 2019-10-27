@@ -201,7 +201,9 @@
                 }
             ],
             "buffs": [],
-            "debuffs": [],
+            "debuffs": [
+                "efct_trans"
+            ],
             "damageModifiers": [
                 {
                     "name": "pow",
@@ -362,7 +364,8 @@
             ],
             "buffs": [],
             "debuffs": [
-                "stic_stun"
+                "stic_stun",
+                "efct_cr_dn"
             ],
             "damageModifiers": [
                 {
@@ -436,10 +439,12 @@
                 }
             ],
             "buffs": [
-                "stic_def_up"
+                "stic_def_up",
+                "efct_ex_turn"
             ],
             "debuffs": [
-                "stic_stun"
+                "stic_stun",
+                "efct_cr_dn"
             ],
             "damageModifiers": [
                 {

@@ -289,7 +289,8 @@
                 }
             ],
             "buffs": [
-                "stic_att_up"
+                "stic_att_up",
+                "efct_cr_up"
             ],
             "debuffs": [],
             "damageModifiers": [
@@ -420,7 +421,8 @@
             ],
             "buffs": [],
             "debuffs": [
-                "stic_silence"
+                "stic_silence",
+                "efct_cr_dn"
             ],
             "damageModifiers": [
                 {

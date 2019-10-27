@@ -339,7 +339,10 @@
                     ]
                 }
             ],
-            "buffs": [],
+            "buffs": [
+                "stic_counter",
+                "stic_share_dmg"
+            ],
             "debuffs": [],
             "damageModifiers": [
                 {

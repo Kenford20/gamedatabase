@@ -284,7 +284,9 @@
                     ]
                 }
             ],
-            "buffs": [],
+            "buffs": [
+                "efct_cr_up"
+            ],
             "debuffs": [
                 "stic_stun"
             ],
@@ -397,8 +399,12 @@
                     ]
                 }
             ],
-            "buffs": [],
-            "debuffs": [],
+            "buffs": [
+                "efct_cd_dn"
+            ],
+            "debuffs": [
+                "efct_def_pen"
+            ],
             "damageModifiers": [
                 {
                     "name": "pow",
