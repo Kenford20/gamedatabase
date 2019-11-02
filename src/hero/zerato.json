@@ -266,10 +266,10 @@
                     ]
                 }
             ],
-            "buffs": [],
-            "debuffs": [
-                "efct_cr_dn"
+            "buffs": [
+                "efct_cr_up"
             ],
+            "debuffs": [],
             "damageModifiers": [
                 {
                     "name": "pow",

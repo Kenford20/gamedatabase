@@ -279,11 +279,10 @@
                 }
             ],
             "buffs": [
-                "efct_cr_up"
+                "efct_cr_up",
+                "efct_cleanse"
             ],
-            "debuffs": [
-                "efct_dispel"
-            ],
+            "debuffs": [],
             "damageModifiers": [
                 {
                     "name": "pow",
