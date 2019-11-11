@@ -181,7 +181,7 @@
                 "efct_rnd_debuf",
                 "stic_att_dn",
                 "stic_def_dn",
-                "stic_blind",
+                "stic_silence",
                 "stic_heal_impossible"
             ],
             "damageModifiers": [
