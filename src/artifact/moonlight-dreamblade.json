@@ -22,7 +22,7 @@
         }
     },
     "buffs": [
-        "stic_dodge_up",
+        "stic_dodge_up_custom",
         "stic_att_up"
     ],
     "debuffs": []
